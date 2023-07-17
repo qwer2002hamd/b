@@ -3,12 +3,12 @@ from pyrogram.types import Message
 
 from config import BANNED_USERS, adminlist
 from strings import get_command
-from AarohiX import app
-from AarohiX.utils.database import (delete_authuser, get_authuser,
+from AnonX import app
+from AnonX.utils.database import (delete_authuser, get_authuser,
                                        get_authuser_names,
                                        save_authuser)
-from AarohiX.utils.decorators import AdminActual
-from AarohiX.utils.formatters import int_to_alpha
+from AnonX.utils.decorators import AdminActual
+from AnonX.utils.formatters import int_to_alpha
 
 # Command
 AUTH_COMMAND = get_command("AUTH_COMMAND")
