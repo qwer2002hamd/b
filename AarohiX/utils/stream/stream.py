@@ -5,20 +5,20 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from AarohiX import Carbon, YouTube, app
-from AarohiX.core.call import Aarohi
-from AarohiX.misc import db
-from AarohiX.utils.database import (add_active_chat,
+from AnonX import Carbon, YouTube, app
+from AnonX.core.call import Anon
+from AnonX.misc import db
+from AnonX.utils.database import (add_active_chat,
                                        add_active_video_chat,
                                        is_active_chat,
                                        is_video_allowed, music_on)
-from AarohiX.utils.exceptions import AssistantErr
-from AarohiX.utils.inline.play import (stream_markup, queue_markup,
+from AnonX.utils.exceptions import AssistantErr
+from AnonX.utils.inline.play import (stream_markup, queue_markup,
                                           telegram_markup)
-from AarohiX.utils.inline.playlist import close_markup
-from AarohiX.utils.pastebin import Aarohibin
-from AarohiX.utils.stream.queue import put_queue, put_queue_index
-from AarohiX.utils.thumbnails import gen_thumb, gen_qthumb
+from AnonX.utils.inline.playlist import close_markup
+from AnonX.utils.pastebin import Anonbin
+from AnonX.utils.stream.queue import put_queue, put_queue_index
+from AnonX.utils.thumbnails import gen_thumb, gen_qthumb
 
 
 async def stream(
@@ -40,7 +40,7 @@ async def stream(
         if not await is_video_allowed(chat_id):
             raise AssistantErr(_["play_7"])
     if forceplay:
-        await Aarohi.force_stop_stream(chat_id)
+        await Anon.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['playlist_16']}\n\n"
         count = 0
@@ -89,7 +89,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_16"])
-                await Aarohi.join_call(
+                await Anon.join_call(
                     chat_id, original_chat_id, file_path, video=status
                 )
                 await put_queue(
@@ -122,7 +122,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await Aarohibin(msg)
+            link = await Anonbin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -232,7 +232,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Aarohi.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=None
             )
             await put_queue(
@@ -347,7 +347,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Aarohi.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -401,7 +401,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Aarohi.join_call(
+            await Anon.join_call(
                 chat_id,
                 original_chat_id,
                 link,
