@@ -2,9 +2,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from config import adminlist
 from strings import get_string
-from AarohiX import app
-from AarohiX.misc import SUDOERS
-from AarohiX.utils.database import (get_authuser_names, get_cmode,
+from AnonX import app
+from AnonX.misc import SUDOERS
+from AnonX.utils.database import (get_authuser_names, get_cmode,
                                        get_lang, is_active_chat,
                                        is_commanddelete_on,
                                        is_maintenance,
