@@ -1,6 +1,6 @@
 from strings import get_string
-from AarohiX.misc import SUDOERS
-from AarohiX.utils.database import (get_lang, is_commanddelete_on,
+from AnonX.misc import SUDOERS
+from AnonX.utils.database import (get_lang, is_commanddelete_on,
                                        is_maintenance)
 
 
