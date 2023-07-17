@@ -4,15 +4,15 @@ from pyrogram.types import InlineKeyboardMarkup, Message
 import config
 from config import BANNED_USERS
 from strings import get_command
-from AarohiX import YouTube, app
-from AarohiX.core.call import Aarohi
-from AarohiX.misc import db
-from AarohiX.utils.database import get_loop
-from AarohiX.utils.decorators import AdminRightsCheck
-from AarohiX.utils.inline.play import (stream_markup,
+from AnonX import YouTube, app
+from AnonX.core.call import Anon
+from AnonX.misc import db
+from AnonX.utils.database import get_loop
+from AnonX.utils.decorators import AdminRightsCheck
+from AnonX.utils.inline.play import (stream_markup,
                                           telegram_markup)
-from AarohiX.utils.stream.autoclear import auto_clean
-from AarohiX.utils.thumbnails import gen_thumb
+from AnonX.utils.stream.autoclear import auto_clean
+from AnonX.utils.thumbnails import gen_thumb
 
 # Commands
 SKIP_COMMAND = get_command("SKIP_COMMAND")
@@ -60,7 +60,7 @@ async def skip(cli, message: Message, _, chat_id):
                                             message.from_user.first_name
                                         )
                                     )
-                                    await Aarohi.stop_stream(chat_id)
+                                    await Anon.stop_stream(chat_id)
                                 except:
                                     return
                                 break
@@ -87,7 +87,7 @@ async def skip(cli, message: Message, _, chat_id):
                     _["admin_10"].format(message.from_user.first_name)
                 )
                 try:
-                    return await Aarohi.stop_stream(chat_id)
+                    return await Anon.stop_stream(chat_id)
                 except:
                     return
         except:
@@ -95,7 +95,7 @@ async def skip(cli, message: Message, _, chat_id):
                 await message.reply_text(
                     _["admin_10"].format(message.from_user.first_name)
                 )
-                return await Aarohi.stop_stream(chat_id)
+                return await Anon.stop_stream(chat_id)
             except:
                 return
     queued = check[0]["file"]
@@ -111,7 +111,7 @@ async def skip(cli, message: Message, _, chat_id):
                 _["admin_11"].format(title)
             )
         try:
-            await Aarohi.skip_stream(chat_id, link, video=status)
+            await Anon.skip_stream(chat_id, link, video=status)
         except Exception:
             return await message.reply_text(_["call_9"])
         button = telegram_markup(_, chat_id)
@@ -142,7 +142,7 @@ async def skip(cli, message: Message, _, chat_id):
         except:
             return await mystic.edit_text(_["call_9"])
         try:
-            await Aarohi.skip_stream(chat_id, file_path, video=status)
+            await Anon.skip_stream(chat_id, file_path, video=status)
         except Exception:
             return await mystic.edit_text(_["call_9"])
         button = stream_markup(_, videoid, chat_id)
@@ -162,7 +162,7 @@ async def skip(cli, message: Message, _, chat_id):
         await mystic.delete()
     elif "index_" in queued:
         try:
-            await Aarohi.skip_stream(chat_id, videoid, video=status)
+            await Anon.skip_stream(chat_id, videoid, video=status)
         except Exception:
             return await message.reply_text(_["call_9"])
         button = telegram_markup(_, chat_id)
@@ -175,7 +175,7 @@ async def skip(cli, message: Message, _, chat_id):
         db[chat_id][0]["markup"] = "tg"
     else:
         try:
-            await Aarohi.skip_stream(chat_id, queued, video=status)
+            await Anon.skip_stream(chat_id, queued, video=status)
         except Exception:
             return await message.reply_text(_["call_9"])
         if videoid == "telegram":
