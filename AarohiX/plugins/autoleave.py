@@ -2,9 +2,9 @@ import asyncio
 from datetime import datetime
 
 import config
-from AarohiX import app
-from AarohiX.core.call import Aarohi, autoend
-from AarohiX.utils.database import (get_client, is_active_chat,
+from AnonX import app
+from AnonX.core.call import Aarohi, autoend
+from AnonX.utils.database import (get_client, is_active_chat,
                                        is_autoend)
 
 
