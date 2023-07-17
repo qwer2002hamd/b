@@ -9,14 +9,14 @@ from pyrogram.types import CallbackQuery, InputMediaPhoto, Message
 import config
 from config import BANNED_USERS
 from strings import get_command
-from AarohiX import app
-from AarohiX.misc import db
-from AarohiX.utils import (Aarohibin, get_channeplayCB,
+from AnonX import app
+from AnonX.misc import db
+from AnonX.utils import (Aarohibin, get_channeplayCB,
                               seconds_to_min)
-from AarohiX.utils.database import (get_cmode, is_active_chat,
+from AnonX.utils.database import (get_cmode, is_active_chat,
                                        is_music_playing)
-from AarohiX.utils.decorators.language import language, languageCB
-from AarohiX.utils.inline import queue_back_markup, queue_markup
+from AnonX.utils.decorators.language import language, languageCB
+from AnonX.utils.inline import queue_back_markup, queue_markup
 
 ###Commands
 QUEUE_COMMAND = get_command("QUEUE_COMMAND")
