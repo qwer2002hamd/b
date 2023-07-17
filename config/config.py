@@ -67,14 +67,13 @@ STRING5 = getenv("STRING_SESSION5", None)
 BANNED_USERS = filters.user()
 YTDOWNLOADER = 1
 LOG = 2
-LOG_FILE_NAME = "AarohiXlogs.txt"
+LOG_FILE_NAME = "logs.txt"
 adminlist = {}
 lyrical = {}
 chatstats = {}
 userstats = {}
 clean = {}
 autoclean = []
-
 
 START_IMG_URL = getenv("START_IMG_URL", "https://te.legra.ph/file/0c373d33859cd378dcafe.jpg")
 
