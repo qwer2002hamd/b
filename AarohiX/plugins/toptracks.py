@@ -4,14 +4,14 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup
 
 from config import BANNED_USERS
-from AarohiX import app
-from AarohiX.utils.database import (get_global_tops,
+from AnonX import app
+from AnonX.utils.database import (get_global_tops,
                                        get_particulars, get_userss)
-from AarohiX.utils.decorators.language import languageCB
-from AarohiX.utils.inline.playlist import (botplaylist_markup,
+from AnonX.utils.decorators.language import languageCB
+from AnonX.utils.inline.playlist import (botplaylist_markup,
                                               failed_top_markup,
                                               top_play_markup)
-from AarohiX.utils.stream.stream import stream
+from AnonX.utils.stream.stream import stream
 
 loop = asyncio.get_running_loop()
 
