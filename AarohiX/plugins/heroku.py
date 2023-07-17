@@ -15,13 +15,13 @@ from pyrogram import filters
 
 import config
 from strings import get_command
-from AarohiX import app
-from AarohiX.misc import HAPP, SUDOERS, XCB
-from AarohiX.utils.database import (get_active_chats,
+from AnonX import app
+from AnonX.misc import HAPP, SUDOERS, XCB
+from AnonX.utils.database import (get_active_chats,
                                        remove_active_chat,
                                        remove_active_video_chat)
 from AarohiX.utils.decorators.language import language
-from AarohiX.utils.pastebin import Aarohibin
+from AarohiX.utils.pastebin import Anonbin
 
 # Commands
 GETLOG_COMMAND = get_command("GETLOG_COMMAND")
@@ -47,7 +47,7 @@ async def log_(client, message, _):
             if HAPP is None:
                 return await message.reply_text(_["heroku_1"])
             data = HAPP.get_log()
-            link = await Aarohibin(data)
+            link = await Anonbin(data)
             return await message.reply_text(link)
         else:
             if os.path.exists(config.LOG_FILE_NAME):
@@ -60,7 +60,7 @@ async def log_(client, message, _):
                     NUMB = 100
                 for x in lines[-NUMB:]:
                     data += x
-                link = await Aarohibin(data)
+                link = await Anonbin(data)
                 return await message.reply_text(link)
             else:
                 return await message.reply_text(_["heroku_2"])
