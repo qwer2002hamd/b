@@ -1,10 +1,10 @@
 from pyrogram import filters
 
 from config import BANNED_USERS
-from AarohiX import YouTube, app
-from AarohiX.utils.channelplay import get_channeplayCB
-from AarohiX.utils.decorators.language import languageCB
-from AarohiX.utils.stream.stream import stream
+from AnonX import YouTube, app
+from AnonX.utils.channelplay import get_channeplayCB
+from AnonX.utils.decorators.language import languageCB
+from AnonX.utils.stream.stream import stream
 
 
 @app.on_callback_query(filters.regex("LiveStream") & ~BANNED_USERS)
