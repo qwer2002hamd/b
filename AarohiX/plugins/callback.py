@@ -6,19 +6,19 @@ from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
 from config import (AUTO_DOWNLOADS_CLEAR, BANNED_USERS,
                     SOUNCLOUD_IMG_URL, STREAM_IMG_URL,
                     TELEGRAM_AUDIO_URL, TELEGRAM_VIDEO_URL, adminlist)
-from AarohiX import YouTube, app
-from AarohiX.core.call import Aarohi
-from AarohiX.misc import SUDOERS, db
-from AarohiX.utils.database import (is_active_chat,
+from AnonX import YouTube, app
+from AnonX.core.call import Anon
+from AnonX.misc import SUDOERS, db
+from AnonX.utils.database import (is_active_chat,
                                        is_music_playing, set_loop,
                                        is_nonadmin_chat, music_off,
                                        music_on)
-from AarohiX.utils.decorators.language import languageCB
-from AarohiX.utils.formatters import seconds_to_min
-from AarohiX.utils.inline.play import (stream_markup,
+from AnonX.utils.decorators.language import languageCB
+from AnonX.utils.formatters import seconds_to_min
+from AnonX.utils.inline.play import (stream_markup,
                                           telegram_markup)
-from AarohiX.utils.stream.autoclear import auto_clean
-from AarohiX.utils.thumbnails import gen_thumb
+from AnonX.utils.stream.autoclear import auto_clean
+from AnonX.utils.thumbnails import gen_thumb
 
 wrong = {}
 
@@ -84,7 +84,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             )
         await CallbackQuery.answer()
         await music_off(chat_id)
-        await Aarohi.pause_stream(chat_id)
+        await Anon.pause_stream(chat_id)
         await CallbackQuery.message.reply_text(
             _["admin_2"].format(mention)
         )
@@ -95,13 +95,13 @@ async def del_back_playlist(client, CallbackQuery, _):
             )
         await CallbackQuery.answer()
         await music_on(chat_id)
-        await Aarohi.resume_stream(chat_id)
+        await Anon.resume_stream(chat_id)
         await CallbackQuery.message.reply_text(
             _["admin_4"].format(mention)
         )
     elif command == "Stop" or command == "End":
         await CallbackQuery.answer()
-        await Aarohi.stop_stream(chat_id)
+        await Anon.stop_stream(chat_id)
         await set_loop(chat_id, 0)
         await CallbackQuery.message.reply_text(
             _["admin_9"].format(mention)
@@ -153,7 +153,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                     _["admin_10"].format(mention)
                 )
                 try:
-                    return await Aarohi.stop_stream(chat_id)
+                    return await Anon.stop_stream(chat_id)
                 except:
                     return
         except:
@@ -164,7 +164,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 await CallbackQuery.message.reply_text(
                     _["admin_10"].format(mention)
                 )
-                return await Aarohi.stop_stream(chat_id)
+                return await Anon.stop_stream(chat_id)
             except:
                 return
         await CallbackQuery.answer()
@@ -183,7 +183,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                     _["admin_11"].format(title)
                 )
             try:
-                await Aarohi.skip_stream(chat_id, link, video=status)
+                await Anon.skip_stream(chat_id, link, video=status)
             except Exception:
                 return await CallbackQuery.message.reply_text(
                     _["call_9"]
@@ -217,7 +217,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 return await mystic.edit_text(_["call_9"])
             try:
-                await Aarohi.skip_stream(
+                await Anon.skip_stream(
                     chat_id, file_path, video=status
                 )
             except Exception:
@@ -240,7 +240,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             await mystic.delete()
         elif "index_" in queued:
             try:
-                await Aarohi.skip_stream(
+                await Anon.skip_stream(
                     chat_id, videoid, video=status
                 )
             except Exception:
@@ -258,7 +258,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             await CallbackQuery.edit_message_text(txt)
         else:
             try:
-                await Aarohi.skip_stream(chat_id, queued, video=status)
+                await Anon.skip_stream(chat_id, queued, video=status)
             except Exception:
                 return await CallbackQuery.message.reply_text(
                     _["call_9"]
@@ -355,7 +355,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             if n == 0:
                 return await mystic.edit_text(_["admin_30"])
         try:
-            await Aarohi.seek_stream(
+            await Anon.seek_stream(
                 chat_id,
                 file_path,
                 seconds_to_min(to_seek),
