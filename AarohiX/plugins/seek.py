@@ -3,10 +3,10 @@ from pyrogram.types import Message
 
 from config import BANNED_USERS
 from strings import get_command
-from AarohiX import YouTube, app
-from AarohiX.core.call import Aarohi
-from AarohiX.misc import db
-from AarohiX.utils import AdminRightsCheck, seconds_to_min
+from AnonX import YouTube, app
+from AnonX.core.call import Anon
+from AnonX.misc import db
+from AnonX.utils import AdminRightsCheck, seconds_to_min
 
 # Commands
 SEEK_COMMAND = get_command("SEEK_COMMAND")
@@ -61,7 +61,7 @@ async def seek_comm(cli, message: Message, _, chat_id):
         if n == 0:
             return await message.reply_text(_["admin_30"])
     try:
-        await Aarohi.seek_stream(
+        await Anon.seek_stream(
             chat_id,
             file_path,
             seconds_to_min(to_seek),
